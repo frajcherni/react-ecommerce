@@ -1,0 +1,38 @@
+import React, { useEffect, useRef } from 'react';
+
+interface RatioImageProps {
+  src: string;
+  className?: string;
+  alt?: string;
+  [key: string]: any;
+}
+
+const RatioImage: React.FC<RatioImageProps> = (props) => {
+  const bgImg = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const image = bgImg.current;
+    if (image && image.classList.contains('bg-img')) {
+      const parentElement = image.parentElement;
+      const src = image.getAttribute('src');
+      if (parentElement && src) {
+        parentElement.classList.add('bg-size');
+        image.style.display = 'none';
+        parentElement.setAttribute(
+          'style',
+          `
+          background-image: url(${src});
+          background-size:cover; 
+          background-position: center;
+          background-repeat: no-repeat;
+          display: block;
+          `,
+        );
+      }
+    }
+  }, [props]);
+
+  return <img ref={bgImg} {...props} />;
+};
+
+export default RatioImage;

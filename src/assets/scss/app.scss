@@ -1,0 +1,13 @@
+// app.scss
+@use "sass:math";
+@use "sass:color";
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+// // Then CSS imports
+
+@import "utils/variables";
+@import 'style.scss';
+
+.dark{
+    @import 'dark.scss';
+}
