@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import RatioImage from '../RatioImage';
+import RatioImage from './RatioImage';
 
 interface OfferBannerProps {
   classes?: {

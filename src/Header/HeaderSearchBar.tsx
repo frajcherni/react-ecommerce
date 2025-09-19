@@ -20,9 +20,7 @@ const HeaderSearchBar: React.FC = () => {
 
   return (
     <div className='middle-box'>
-      <div className='location-box'>
-        <CategoryDropdown />
-      </div>
+
       <div className='search-box'>
         <InputGroup>
           <Input

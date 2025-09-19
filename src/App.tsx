@@ -16,6 +16,8 @@ import ProductWrapper from './Products/ProductWrapper';
 import BasicHeader from './Header/BasicHeader';
 import OfferBanner from './NewsLetter/OffreBanner';
 import TwoBanner from './OffreBanner/TwoBanner';
+import Footer from './Footer/Footer';
+import MobileFooter from './Footer/MobileFooter';
 import {madridFullSlider} from './Products/SliderSettings';
 const queryClient = new QueryClient();
 
@@ -646,35 +648,54 @@ const App: React.FC = () => {
 
 const offreData = {
   banner_1: {
-    image_url: 'https://example.com/banners/banner1.jpg',
+    image_url: 'https://etikeoprivilege.com/Content/v2/img/ecologie.png',
     redirect_link: {
       link_type: 'external_url' as 'external_url',
       link: 'https://example.com/sale',
     },
   },
   banner_2: {
-    image_url: 'https://example.com/banners/banner2.jpg',
+    image_url: 'https://etikeoprivilege.com/Content/v2/img/info-etikeo.jpg',
     redirect_link: {
       link_type: 'collection' as 'collection',
       link: 'electronics',
-    },
-  },
-  single_banner: {
-    image_url: 'https://example.com/banners/single-banner.jpg',
-    redirect_link: {
-      link_type: 'product' as 'product',
-      link: 'wireless-bluetooth-headphones',
     },
   },
 };
 
 const bannerData = {
-    image_url: 'https://etikeoprivilege.com/Content/Promotions/News-Bienvenue_5.jpg',
+    image_url: 'https://laravel.pixelstrap.net/fastkart/storage/670/rome_07.jpg',
     redirect_link: {
       link_type: 'collection' as 'collection',
       link: 'electronics',
     },
   }
+   const footerData = {
+    copyright_content: '© 2025 Your Company. All rights reserved.',
+    footer_about: 'Your trusted online store for quality products.',
+    about_address: '1234 Example St, City, Country',
+    about_email: 'support@yourcompany.com',
+    support_number: '+1-800-555-1234',
+    support_email: 'support@yourcompany.com',
+    app_store_url: 'https://www.apple.com/app-store/',
+    play_store_url: 'https://play.google.com/store',
+    social_media_enable: true,
+    facebook: 'https://www.facebook.com/yourcompany',
+    twitter: 'https://www.twitter.com/yourcompany',
+    instagram: 'https://www.instagram.com/yourcompany',
+    pinterest: 'https://www.pinterest.com/yourcompany',
+    useful_link: [
+      { label: 'About Us', link: 'about' },
+      { label: 'Contact', link: 'contact' },
+      { label: 'FAQ', link: 'faq' },
+    ],
+    help_center: [
+      { label: 'Privacy Policy', link: 'privacy-policy' },
+      { label: 'Terms of Service', link: 'terms' },
+      { label: 'Returns', link: 'returns' },
+    ],
+    footer_categories: [1, 2, 3],
+  };
    return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
@@ -708,9 +729,9 @@ const bannerData = {
                     }}
                     customSliderOption={madridFullSlider}
                   />
-                                    <TwoBanner dataAPI={{ banner_1: offreData.banner_1, banner_2: offreData.banner_2 }} />
-
-                </div>
+                  <TwoBanner dataAPI={{ banner_1: offreData.banner_1, banner_2: offreData.banner_2 }} />
+   <Footer footerData={footerData} categories={categories} />
+                                 </div>
               }
             />
           </Routes>

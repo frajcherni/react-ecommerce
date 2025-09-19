@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'reactstrap';
-import WrapperComponent from '../WrapperComponent';
+import WrapperComponent from './TwoBannerWrapperComponent';
 import OfferBanner from './OffreBanner';
 
 interface TwoBannerProps {
@@ -24,27 +24,14 @@ interface TwoBannerProps {
 
 const TwoBanner: React.FC<TwoBannerProps> = ({ dataAPI }) => {
   return (
-    <WrapperComponent classes={{ sectionClass: 'banner-section' }} noRowCol={true}>
-      <Row className='g-4'>
-        <Col xl={6} md={6}>
-          <OfferBanner
-            classes={{ customHoverClass: 'banner-contain hover-effect', fluidClass: 'container' }}
-            imgUrl={dataAPI?.banner_1?.image_url || '/images/placeholder.jpg'}
-            dataAPI={dataAPI?.banner_1 || { image_url: '/images/placeholder.jpg' }}
-            ratioImage={true}
-            height={300}
-            width={750}
-          />
+        <WrapperComponent classes={{ sectionClass: 'banner-section' }} noRowCol={true}>
+      <Row className='gy-xl-0 gy-3'>
+        <Col xl={6}>
+          <OfferBanner classes={{ customHoverClass: 'banner-contain hover-effect' }}  imgUrl={dataAPI?.banner_1?.image_url || '/images/placeholder.jpg'}
+            dataAPI={dataAPI?.banner_1 || { image_url: '/images/placeholder.jpg' }} />
         </Col>
-        <Col xl={6} md={6}>
-          <OfferBanner
-            classes={{ customHoverClass: 'banner-contain hover-effect', fluidClass: 'container' }}
-            imgUrl={dataAPI?.banner_2?.image_url || '/images/placeholder.jpg'}
-            dataAPI={dataAPI?.banner_2 || { image_url: '/images/placeholder.jpg' }}
-            ratioImage={true}
-            height={300}
-            width={750}
-          />
+        <Col xl={6}>
+          <OfferBanner classes={{ customHoverClass: 'banner-contain hover-effect' }} imgUrl={dataAPI?.banner_2?.image_url || '/images/placeholder.jpg'} dataAPI={dataAPI?.banner_2 || { image_url: '/images/placeholder.jpg' }} />
         </Col>
       </Row>
     </WrapperComponent>

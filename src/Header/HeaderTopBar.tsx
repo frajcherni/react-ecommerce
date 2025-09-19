@@ -22,23 +22,29 @@ const HeaderTopBar: React.FC = () => {
   }, [pathName]);
 
   return (
-    <div className={`header-top${isTokyoTheme ? ' bg-dark' : ''}`} ref={addClass}>
-      <div className='container-fluid-lg'>
-        <Row>
-          <TopbarLeft />
-          <Col lg={3}>
-            <ul className='about-list right-nav-about'>
-              <li className='right-nav-list'>
-                <TopLanguage />
-              </li>
-              <li className='right-nav-list'>
-                <HeaderCurrency />
-              </li>
-            </ul>
-          </Col>
-        </Row>
-      </div>
-    </div>
+ <div
+  className={`header-top${isTokyoTheme ? ' bg-dark' : ''}`}
+  ref={addClass}
+>
+  <div className="container-fluid-lg">
+    <Row className="align-items-center">
+      <TopbarLeft />
+
+      {/* Right side (Language + Currency) */}
+      <Col lg="3" className="ms-auto">
+        <ul className="about-list right-nav-about d-flex justify-content-end  mb-0">
+          <li className="right-nav-list">
+            <TopLanguage />
+          </li>
+          <li className="right-nav-list">
+            <HeaderCurrency />
+          </li>
+        </ul>
+      </Col>
+    </Row>
+  </div>
+</div>
+
   );
 };
 

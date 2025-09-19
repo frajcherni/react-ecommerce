@@ -12,22 +12,23 @@ const RatioImage: React.FC<RatioImageProps> = (props) => {
 
   useEffect(() => {
     const image = bgImg.current;
-    if (image && image.classList.contains('bg-img') && image.parentElement) {
+    if (image && image.classList.contains('bg-img')) {
       const parentElement = image.parentElement;
-      const src = image.getAttribute('src');
-      parentElement.classList.add('bg-size');
-      image.style.display = 'none';
-      parentElement.setAttribute(
-        'style',
-        `
-        background-image: url(${src});
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        display: block;
-        ${props.style ? `height: ${props.style.height}; width: ${props.style.width};` : ''}
-        `
-      );
+      if (parentElement) {
+        const src = image.getAttribute('src');
+        parentElement.classList.add('bg-size');
+        image.style.display = 'none';
+        parentElement.setAttribute(
+          'style',
+          `
+          background-image: url(${src});
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          display: block;
+          `
+        );
+      }
     }
   }, [props.src, props.style]);
 

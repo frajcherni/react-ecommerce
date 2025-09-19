@@ -33,7 +33,7 @@ const SingleBanner: React.FC<SingleBannerProps> = ({ classes = {}, image_url, he
 
   return (
     <div className={classes.sectionClass || ''}>
-      <div className='banner-contain'>
+      <div className='banner-contain hover-effect'>
         {image_url ? (
           dataAPI?.redirect_link?.link_type === 'external_url' ? (
             <a href={dataAPI.redirect_link.link || '/'} target='_blank' rel='noopener noreferrer'>
